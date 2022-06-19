@@ -14,7 +14,8 @@ class _BasicAnimationExampleState extends State<BasicAnimationExample>
     super.initState();
 
     _animationController =
-        AnimationController(vsync: this, duration: Duration(seconds: 2));
+        AnimationController(vsync: this, duration: Duration(seconds: 1));
+
     _animationController.addListener(() => setState(() {}));
     _animationController.repeat(reverse: true);
   }

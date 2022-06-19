@@ -12,13 +12,14 @@ class _CurvedAnimationExampleState extends State<CurvedAnimationExample>
 
   @override
   void initState() {
+    super.initState();
+
     _animationController =
         AnimationController(vsync: this, duration: Duration(seconds: 2));
     _animation =
         CurvedAnimation(parent: _animationController, curve: Curves.bounceOut);
     _animationController.addListener(() => setState(() {}));
     _animationController.repeat(reverse: true);
-    super.initState();
   }
 
   @override

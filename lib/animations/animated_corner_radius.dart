@@ -5,10 +5,10 @@ class AnimatedCornerRadius extends ImplicitlyAnimatedWidget {
   final Widget child;
 
   AnimatedCornerRadius({
-    Key key,
-    @required Duration duration,
-    this.child,
-    this.borderRadius,
+    required this.child,
+    required this.borderRadius,
+    Duration duration = const Duration(milliseconds: 400),
+    Key? key,
     Curve curve = Curves.linear,
   }) : super(duration: duration, curve: curve, key: key);
 
@@ -19,18 +19,21 @@ class AnimatedCornerRadius extends ImplicitlyAnimatedWidget {
 
 class _AnimatedCornerRadiusState
     extends AnimatedWidgetBaseState<AnimatedCornerRadius> {
-  BorderRadiusTween _borderRadiusTween;
+  BorderRadiusTween? _borderRadiusTween;
 
   @override
-  void forEachTween(TweenVisitor visitor) {
-    _borderRadiusTween = visitor(_borderRadiusTween, widget.borderRadius,
-        (dynamic value) => BorderRadiusTween(begin: value));
+  void forEachTween(TweenVisitor<dynamic> visitor) {
+    _borderRadiusTween = visitor(
+      _borderRadiusTween,
+      widget.borderRadius,
+      (dynamic value) => BorderRadiusTween(begin: value),
+    ) as BorderRadiusTween?;
   }
 
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
-      borderRadius: _borderRadiusTween.evaluate(animation),
+      borderRadius: _borderRadiusTween!.evaluate(animation),
       child: widget.child,
     );
   }

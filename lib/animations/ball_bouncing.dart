@@ -21,15 +21,16 @@ class BallBouncing extends StatefulWidget {
 
 class _BallBouncingState extends State<BallBouncing>
     with SingleTickerProviderStateMixin {
-  AnimationController _animationController;
-  Animation bounceAnimation;
+  late AnimationController _animationController;
+  late Animation bounceAnimation;
 
-  Size widgetSize;
+  late Size widgetSize;
 
   GlobalKey widgetKey = GlobalKey();
 
   _setSizes() {
-    final RenderBox renderBoxRed = widgetKey.currentContext.findRenderObject();
+    final RenderBox renderBoxRed =
+        widgetKey.currentContext?.findRenderObject() as RenderBox;
     widgetSize = renderBoxRed.size;
   }
 
@@ -37,9 +38,10 @@ class _BallBouncingState extends State<BallBouncing>
     _setSizes();
     _animationController =
         AnimationController(vsync: this, duration: Duration(seconds: 8));
-    bounceAnimation = Tween<double>(
-            begin: 0.0, end: widgetSize.height - BALL_RADIUS)
-        .animate(CurvedAnimation(parent: _animationController, curve: Curves.bounceOut));
+    bounceAnimation =
+        Tween<double>(begin: 0.0, end: widgetSize.height - BALL_RADIUS).animate(
+            CurvedAnimation(
+                parent: _animationController, curve: Curves.bounceOut));
     _animationController.addListener(() {
       setState(() {});
     });
@@ -48,7 +50,7 @@ class _BallBouncingState extends State<BallBouncing>
 
   @override
   void initState() {
-    WidgetsBinding.instance.addPostFrameCallback((_) => _startAnimation());
+    WidgetsBinding.instance?.addPostFrameCallback((_) => _startAnimation());
     super.initState();
   }
 
@@ -83,7 +85,7 @@ class BouncingPainter extends CustomPainter {
   final double ballTop;
   final double animationPercent;
 
-  BouncingPainter({this.animationPercent, this.ballTop})
+  BouncingPainter({required this.animationPercent, required this.ballTop})
       : ballPaint = Paint()..color = Colors.deepOrange;
 
   @override

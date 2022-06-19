@@ -7,11 +7,11 @@ class CurvesComparison extends StatefulWidget {
 
 class _CurvesComparisonState extends State<CurvesComparison>
     with SingleTickerProviderStateMixin {
-  AnimationController _controller;
-  Animation linearCurve;
-  Animation elasticCurve;
-  Animation easeCurve;
-  Animation bounceCurve;
+  late AnimationController _controller;
+  late Animation linearCurve;
+  late Animation elasticCurve;
+  late Animation easeCurve;
+  late Animation bounceCurve;
 
   @override
   void initState() {

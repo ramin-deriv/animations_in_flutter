@@ -23,8 +23,9 @@ class _AnimationsListState extends State<AnimationsList> {
       appBar: AppBar(
         backgroundColor: Colors.brown,
         title: Text('Animations in Flutter'),
-        leading: FlutterLogo(size: 5.0,),
-
+        leading: FlutterLogo(
+          size: 5.0,
+        ),
       ),
       body: ListView.builder(
           itemCount: examples.length,
@@ -46,7 +47,7 @@ class Example {
   final String title;
   final Widget widget;
 
-  Example({this.title, this.widget});
+  Example({required this.title, required this.widget});
 }
 
 List<Example> examples = [

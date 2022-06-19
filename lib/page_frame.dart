@@ -4,7 +4,11 @@ class PageFrame extends StatelessWidget {
   final String title;
   final Widget child;
 
-  const PageFrame({Key key, this.title, this.child}) : super(key: key);
+  const PageFrame({
+    Key? key,
+    required this.title,
+    required this.child,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

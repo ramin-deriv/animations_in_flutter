@@ -3,27 +3,27 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 
 class MultipleAnimationsExample extends StatefulWidget {
-
   @override
-  _MultipleAnimationsExampleState createState() => _MultipleAnimationsExampleState();
-
+  _MultipleAnimationsExampleState createState() =>
+      _MultipleAnimationsExampleState();
 }
 
-class _MultipleAnimationsExampleState extends State<MultipleAnimationsExample> with SingleTickerProviderStateMixin{
-
-  AnimationController _animationController;
-  Animation _scaleAnimation;
-  Animation _rotateAnimation;
+class _MultipleAnimationsExampleState extends State<MultipleAnimationsExample>
+    with SingleTickerProviderStateMixin {
+  late AnimationController _animationController;
+  late Animation _scaleAnimation;
+  late Animation _rotateAnimation;
 
   @override
   void initState() {
-    _animationController = AnimationController(vsync: this, duration: Duration(seconds: 3));
-    _scaleAnimation = CurvedAnimation(parent: _animationController, curve: Curves.easeOutCubic);
-    _rotateAnimation = Tween<double>(begin: 0.0, end: 2 * pi).animate(_animationController);
-    _animationController.addListener((){
-      setState(() {
-
-      });
+    _animationController =
+        AnimationController(vsync: this, duration: Duration(seconds: 3));
+    _scaleAnimation = CurvedAnimation(
+        parent: _animationController, curve: Curves.easeOutCubic);
+    _rotateAnimation =
+        Tween<double>(begin: 0.0, end: 2 * pi).animate(_animationController);
+    _animationController.addListener(() {
+      setState(() {});
     });
     _animationController.repeat();
     super.initState();
@@ -49,5 +49,4 @@ class _MultipleAnimationsExampleState extends State<MultipleAnimationsExample> w
     _animationController.dispose();
     super.dispose();
   }
-
 }

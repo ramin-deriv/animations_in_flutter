@@ -1,19 +1,20 @@
 import 'package:flutter/material.dart';
 
 class BasicAnimationAnimatedBuilderExample extends StatefulWidget {
-
   @override
-  _BasicAnimationAnimatedBuilderExampleState createState() => _BasicAnimationAnimatedBuilderExampleState();
-
+  _BasicAnimationAnimatedBuilderExampleState createState() =>
+      _BasicAnimationAnimatedBuilderExampleState();
 }
 
-class _BasicAnimationAnimatedBuilderExampleState extends State<BasicAnimationAnimatedBuilderExample> with SingleTickerProviderStateMixin{
-
-  AnimationController _animationController;
+class _BasicAnimationAnimatedBuilderExampleState
+    extends State<BasicAnimationAnimatedBuilderExample>
+    with SingleTickerProviderStateMixin {
+  late AnimationController _animationController;
 
   @override
   void initState() {
-    _animationController = AnimationController(vsync: this, duration: Duration(seconds: 2));
+    _animationController =
+        AnimationController(vsync: this, duration: Duration(seconds: 2));
     _animationController.repeat();
     super.initState();
   }
@@ -41,5 +42,4 @@ class _BasicAnimationAnimatedBuilderExampleState extends State<BasicAnimationAni
     _animationController.dispose();
     super.dispose();
   }
-
 }

@@ -4,7 +4,7 @@ import 'package:animations_in_flutter/animations/curved_animation.dart';
 import 'package:animations_in_flutter/animations/curves.dart';
 import 'package:animations_in_flutter/animations/custom_implicit_example.dart';
 import 'package:animations_in_flutter/animations/multiple_animations.dart';
-import 'package:animations_in_flutter/animations/sequnce_of_animations.dart';
+import 'package:animations_in_flutter/animations/staggered_animations.dart';
 import 'package:animations_in_flutter/page_frame.dart';
 import 'package:flutter/material.dart';
 
@@ -69,7 +69,7 @@ List<Example> examples = [
   ),
   Example(
     title: 'Sequence of Animations',
-    widget: SequenceOfAnimationsExample(),
+    widget: StaggeredAnimationExample(),
   ),
   Example(
     title: 'Implicit Animation Example',

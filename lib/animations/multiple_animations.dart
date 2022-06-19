@@ -16,6 +16,8 @@ class _MultipleAnimationsExampleState extends State<MultipleAnimationsExample>
 
   @override
   void initState() {
+    super.initState();
+
     _animationController =
         AnimationController(vsync: this, duration: Duration(seconds: 3));
     _scaleAnimation = CurvedAnimation(
@@ -25,8 +27,7 @@ class _MultipleAnimationsExampleState extends State<MultipleAnimationsExample>
     _animationController.addListener(() {
       setState(() {});
     });
-    _animationController.repeat();
-    super.initState();
+    _animationController.repeat(reverse: true);
   }
 
   @override

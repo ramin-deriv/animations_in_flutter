@@ -17,7 +17,7 @@ class _CurvedAnimationExampleState extends State<CurvedAnimationExample>
     _animation =
         CurvedAnimation(parent: _animationController, curve: Curves.bounceOut);
     _animationController.addListener(() => setState(() {}));
-    _animationController.repeat();
+    _animationController.repeat(reverse: true);
     super.initState();
   }
 

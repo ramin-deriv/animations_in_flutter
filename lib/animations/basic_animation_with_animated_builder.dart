@@ -13,10 +13,11 @@ class _BasicAnimationAnimatedBuilderExampleState
 
   @override
   void initState() {
+    super.initState();
+
     _animationController =
         AnimationController(vsync: this, duration: Duration(seconds: 2));
-    _animationController.repeat();
-    super.initState();
+    _animationController.repeat(reverse: true);
   }
 
   @override

@@ -2,14 +2,13 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
-class SequenceOfAnimationsExample extends StatefulWidget {
+class StaggeredAnimationExample extends StatefulWidget {
   @override
-  _SequenceOfAnimationsExampleState createState() =>
-      _SequenceOfAnimationsExampleState();
+  _StaggeredAnimationExampleState createState() =>
+      _StaggeredAnimationExampleState();
 }
 
-class _SequenceOfAnimationsExampleState
-    extends State<SequenceOfAnimationsExample>
+class _StaggeredAnimationExampleState extends State<StaggeredAnimationExample>
     with SingleTickerProviderStateMixin {
   late AnimationController _animationController;
   late Animation _scaleAnimation;
@@ -17,6 +16,8 @@ class _SequenceOfAnimationsExampleState
 
   @override
   void initState() {
+    super.initState();
+
     _animationController =
         AnimationController(vsync: this, duration: Duration(seconds: 3));
     _scaleAnimation = CurvedAnimation(
@@ -28,8 +29,7 @@ class _SequenceOfAnimationsExampleState
     _animationController.addListener(() {
       setState(() {});
     });
-    _animationController.repeat();
-    super.initState();
+    _animationController.repeat(reverse: true);
   }
 
   @override

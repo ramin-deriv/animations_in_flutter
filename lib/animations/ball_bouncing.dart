@@ -24,14 +24,16 @@ class _BallBouncingState extends State<BallBouncing>
   late AnimationController _animationController;
   late Animation bounceAnimation;
 
-  late Size widgetSize;
+  Size? widgetSize;
 
   GlobalKey widgetKey = GlobalKey();
 
   _setSizes() {
     final RenderBox renderBoxRed =
         widgetKey.currentContext?.findRenderObject() as RenderBox;
-    widgetSize = renderBoxRed.size;
+    setState(() {
+      widgetSize = renderBoxRed.size;
+    });
   }
 
   _startAnimation() {
@@ -39,7 +41,7 @@ class _BallBouncingState extends State<BallBouncing>
     _animationController =
         AnimationController(vsync: this, duration: Duration(seconds: 8));
     bounceAnimation =
-        Tween<double>(begin: 0.0, end: widgetSize.height - BALL_RADIUS).animate(
+        Tween<double>(begin: 0.0, end: widgetSize!.height - BALL_RADIUS).animate(
             CurvedAnimation(
                 parent: _animationController, curve: Curves.bounceOut));
     _animationController.addListener(() {
@@ -61,8 +63,8 @@ class _BallBouncingState extends State<BallBouncing>
       child: widgetSize == null
           ? Container()
           : Container(
-              width: widgetSize.width,
-              height: widgetSize.height,
+              width: widgetSize!.width,
+              height: widgetSize!.height,
               child: CustomPaint(
                 painter: BouncingPainter(
                   ballTop: bounceAnimation.value,

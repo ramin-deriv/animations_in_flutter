@@ -28,17 +28,21 @@ class _AnimationsListState extends State<AnimationsList> {
         ),
       ),
       body: ListView.builder(
-          itemCount: examples.length,
-          itemBuilder: (context, i) {
-            return ListTile(
-              title: Text(examples[i].title),
-              onTap: () => Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => PageFrame(
-                        title: examples[i].title,
-                        child: examples[i].widget,
-                      ))),
-            );
-          }),
+        itemCount: examples.length,
+        itemBuilder: (context, i) {
+          return ListTile(
+            title: Text(examples[i].title),
+            onTap: () => Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) => PageFrame(
+                  title: examples[i].title,
+                  child: examples[i].widget,
+                ),
+              ),
+            ),
+          );
+        },
+      ),
     );
   }
 }
@@ -68,7 +72,7 @@ List<Example> examples = [
     widget: MultipleAnimationsExample(),
   ),
   Example(
-    title: 'Sequence of Animations',
+    title: 'Staggered Animations',
     widget: StaggeredAnimationExample(),
   ),
   Example(

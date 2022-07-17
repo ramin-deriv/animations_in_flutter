@@ -13,15 +13,8 @@ class PageFrame extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(title),
-      ),
-      body: Container(
-        color: Color.fromRGBO(27, 33, 44, 1.0),
-        child: Center(
-          child: child,
-        ),
-      ),
+      appBar: AppBar(title: Text(title)),
+      body: Center(child: child),
     );
   }
 }
